@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     private GameObject parent;
     public GameObject Parent { set { parent = value; } }
 
-    private float speed = 0.05F;
+    private float speed = 10.0F;
     private Vector3 direction;
     public Vector3 Direction { set { direction = value; } }
 
@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         if(Time.timeScale != 0.0F)
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed + Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
